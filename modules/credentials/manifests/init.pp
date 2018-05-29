@@ -48,4 +48,13 @@ define credentials(
     require => File["/etc/credentials/${system}/${title}"]
   }
 
+  file { "/etc/credentials/${system}/${title}/credentials.json" :
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0444',
+    content => template("credentials/credentials.json.tpl"),
+    require => File["/etc/credentials/${system}/${title}"]
+  }
+
 }

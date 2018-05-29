@@ -75,6 +75,18 @@ describe 'credentials' do
         .that_requires("File[/etc/credentials/#{params[:system]}/#{title}]")
     }
 
+    it {
+      should contain_file("/etc/credentials/#{params[:system]}/#{title}/credentials.json")
+         .with(
+             :ensure  => 'present',
+             :owner   => 'root',
+             :group   => 'root',
+             :mode    => '0444',
+             :content => '{"artifactory_developer_example_username":"the_username","artifactory_developer_example_password":"the_password"}',
+             )
+         .that_requires("File[/etc/credentials/#{params[:system]}/#{title}]")
+    }
+
   end
 
 end

@@ -1,4 +1,5 @@
 language: ruby
 before_install:
- - sudo apt-get install -y pdk
+ - wget "https://pm.puppet.com/cgi-bin/pdk_download.cgi?dist=ubuntu&rel=14.04&arch=amd64&ver=latest" -O pdk.deb
+ - sudo dpkg -i pdk.deb
 script: ./run-tests.sh

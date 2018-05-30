@@ -1,3 +1,15 @@
+# == Define: credentials
+#
+# Manages the /etc/credentials directory tree for storing configuration files.
+#
+# === Parameters:
+#
+# [*system*]
+#   System to which the credential belongs. Used for namespacing. e.g. 'artifactory'
+#
+# [*config*]
+#   Hash of credentials to provide e.g. { user => 'foo', pass => 'some-secret', token => 'mytoken' }
+#
 define credentials(
   $system,
   $config
@@ -18,7 +30,7 @@ define credentials(
       owner   => 'root',
       group   => 'root',
       mode    => '0755',
-      require => File["/etc/credentials"],
+      require => File['/etc/credentials'],
     }
   }
 
@@ -35,7 +47,7 @@ define credentials(
     owner   => 'root',
     group   => 'root',
     mode    => '0444',
-    content => template("credentials/credentials.sh.tpl"),
+    content => template('credentials/credentials.sh.tpl'),
     require => File["/etc/credentials/${system}/${title}"]
   }
 
@@ -44,7 +56,7 @@ define credentials(
     owner   => 'root',
     group   => 'root',
     mode    => '0444',
-    content => template("credentials/credentials.properties.tpl"),
+    content => template('credentials/credentials.properties.tpl'),
     require => File["/etc/credentials/${system}/${title}"]
   }
 
@@ -53,7 +65,7 @@ define credentials(
     owner   => 'root',
     group   => 'root',
     mode    => '0444',
-    content => template("credentials/credentials.json.tpl"),
+    content => template('credentials/credentials.json.tpl'),
     require => File["/etc/credentials/${system}/${title}"]
   }
 

@@ -1,0 +1,11 @@
+{
+  "name": "unruly-base",
+  "version": "0.1.0",
+  "author": "unruly",
+  "summary": "Base installation for CentOS 7.",
+  "license": "MIT",
+  "source": "https://github.com/unruly/unruly-puppet/modules/base",
+  "project_page": "https://github.com/unruly/unruly-puppet/",
+  "dependencies": [],
+  "pdk-version": "1.3.2"
+}

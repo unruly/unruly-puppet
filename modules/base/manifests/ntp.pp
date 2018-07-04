@@ -4,11 +4,11 @@
 #
 class base::ntp {
   package { 'ntp':
-    ensure   => 'installed',
+    ensure => 'installed',
   }
 
   service { 'ntpd':
-    ensure   => 'running',
-    enable   => 'true',
+    ensure => 'running',
+    enable => true,
   }
 }

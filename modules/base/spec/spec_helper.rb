@@ -19,5 +19,6 @@ if File.exist?(default_module_facts_path) && File.readable?(default_module_facts
 end
 
 RSpec.configure do |c|
+  c.hiera_config = File.join(__FILE__, '..', 'hiera.yaml')
   c.default_facts = default_facts
 end

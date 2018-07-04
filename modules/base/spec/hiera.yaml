@@ -1,0 +1,7 @@
+---
+:backends:
+  - yaml
+:hierarchy:
+  - tests
+:yaml:
+  :datadir: 'spec/'

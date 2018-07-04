@@ -1,0 +1,2 @@
+---
+base::yum::plugins: foo_package

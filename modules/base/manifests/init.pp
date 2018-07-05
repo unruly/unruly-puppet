@@ -6,4 +6,5 @@ class base {
   include base::ntp
   include base::ssh::server
   include base::yum
+  include base::yum::repos::unruly
 }

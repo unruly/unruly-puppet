@@ -10,7 +10,7 @@ describe 'base::yum::repos::unruly' do
                 :descr    => 'new Unruly-wide repo',
                 :baseurl  => 'http://yum_unruly_baseurl.com',
                 :gpgcheck => 0,
-                :priority => 20,
+                :priority => 'absent',
                 :metadata_expire => '5m',
                 :ensure     => 'present',
 

@@ -12,7 +12,7 @@ class base::yum::repos::unruly(
     descr           => 'new Unruly-wide repo',
     baseurl         => $baseurl,
     gpgcheck        => 0,
-    priority        => 20,
+    priority        => 'absent',
     metadata_expire => '5m',
   }
 }

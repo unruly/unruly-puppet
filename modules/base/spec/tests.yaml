@@ -1,2 +1,3 @@
 ---
 base::yum::plugins: foo_package
+base::yum::repos::unruly::baseurl: http://yum_unruly_baseurl.com

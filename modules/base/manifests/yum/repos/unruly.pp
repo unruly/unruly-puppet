@@ -2,6 +2,14 @@
 #
 # Sets up unruly repository config for yum
 #
+# === Parameters:
+#
+# [*baseurl*]
+#   Location of the unruly yum repo
+#
+# [*ensure*]
+#   Set ensure property for the yumrepo resource
+#
 class base::yum::repos::unruly(
   $baseurl = hiera('base::yum::repos::unruly::baseurl'),
   $ensure = 'present'

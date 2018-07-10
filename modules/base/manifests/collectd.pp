@@ -17,6 +17,14 @@ class base::collectd(
     require => Package['collectd'],
   }
 
+  file { '/etc/collectd.d/':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    before => File['/etc/collectd.d/base.conf'],
+  }
+
   file { '/etc/collectd.conf':
     owner   => 'root',
     group   => 'root',
@@ -29,6 +37,7 @@ class base::collectd(
     group   => 'root',
     mode    => '0644',
     content => file('base/collectd/base.conf'),
+    require => File['/etc/collectd.d'],
   }
 
   file { '/etc/collectd.d/graphite.conf':
@@ -36,6 +45,7 @@ class base::collectd(
     group   => 'root',
     mode    => '0644',
     content => template('base/collectd/graphite.conf.tpl'),
+    require => File['/etc/collectd.d'],
   }
 
   file { '/etc/collectd.d/unixsock.conf':
@@ -43,5 +53,11 @@ class base::collectd(
     group   => 'root',
     mode    => '0644',
     content => file('base/collectd/unixsock.conf'),
+    require => File['/etc/collectd.d'],
+  }
+
+  file { '/var/run/collectd-unixsock':
+    ensure => 'link',
+    target => 'collectd.sock'
   }
 }

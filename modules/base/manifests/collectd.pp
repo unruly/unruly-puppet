@@ -21,4 +21,11 @@ class base::collectd(
     mode    => '0644',
     content => file('base/collectd/collectd.conf'),
   }
+
+  file { '/etc/collectd.d/base.conf':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => file('base/collectd/base.conf'),
+  }
 }

@@ -14,11 +14,21 @@ describe 'base::collectd' do
         .that_requires('Package[collectd]')
   }
 
+  it { is_expected.to contain_file('/etc/collectd.d/')
+        .with(
+            :ensure => 'directory',
+            :owner  => 'root',
+            :group  => 'root',
+            :mode   => '0755',
+        )
+  }
+
   it { is_expected.to contain_file('/etc/collectd.conf')
         .with(
             :owner  => 'root',
             :group  => 'root',
-            :mode   => '0644')
+            :mode   => '0644'
+        )
   }
 
   it {
@@ -31,7 +41,10 @@ describe 'base::collectd' do
         .with(
             :owner  => 'root',
             :group  => 'root',
-            :mode   => '0644')
+            :mode   => '0644'
+        )
+        .that_requires('File[/etc/collectd.d]')
+
   }
 
   it {
@@ -43,7 +56,10 @@ describe 'base::collectd' do
         .with(
             :owner  => 'root',
             :group  => 'root',
-            :mode   => '0644')
+            :mode   => '0644'
+        )
+        .that_requires('File[/etc/collectd.d]')
+
   }
 
   it {
@@ -58,13 +74,23 @@ describe 'base::collectd' do
         .with(
             :owner  => 'root',
             :group  => 'root',
-            :mode   => '0644')
+            :mode   => '0644'
+        )
+        .that_requires('File[/etc/collectd.d]')
   }
 
   it {
     is_expected_to_have_plugins('/etc/collectd.d/unixsock.conf', %w(unixsock))
     is_expected_to_have_config('/etc/collectd.d/unixsock.conf', 'unixsock')
   }
+
+  it { is_expected.to  contain_file('/var/run/collectd-unixsock')
+        .with(
+            :ensure => 'link',
+            :target => 'collectd.sock'
+        )
+  }
+
 end
 
 def is_expected_to_have_plugins(file, plugins)

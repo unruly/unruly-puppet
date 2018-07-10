@@ -3,7 +3,9 @@
 # Sets up and configures collectd
 #
 class base::collectd(
-  $version = hiera('base::collectd::version'),
+  $version        = hiera('base::collectd::version'),
+  $graphite_host  = hiera('base::collectd::graphite::host'),
+  $graphite_port  = hiera('base::collectd::graphite::port'),
 ) {
   package { 'collectd':
     ensure => $version,
@@ -27,5 +29,19 @@ class base::collectd(
     group   => 'root',
     mode    => '0644',
     content => file('base/collectd/base.conf'),
+  }
+
+  file { '/etc/collectd.d/graphite.conf':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('base/collectd/graphite.conf.tpl'),
+  }
+
+  file { '/etc/collectd.d/unixsock.conf':
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => file('base/collectd/unixsock.conf'),
   }
 }

@@ -7,11 +7,11 @@ describe 'base::ssh::server::config' do
     :group  => 'root',
   })}
 
-  it { is_expected.to contain('Protocol 2')}
-  it { is_expected.to contain('PasswordAuthentication no')}
-  it { is_expected.to contain('PermitRootLogin no')}
+  it { is_expected.to be_configured_with('Protocol 2')}
+  it { is_expected.to be_configured_with('PasswordAuthentication no')}
+  it { is_expected.to be_configured_with('PermitRootLogin no')}
 end
 
-def contain(configuration)
+def be_configured_with(configuration)
   contain_file('/etc/ssh/sshd_config').with_content(/^#{configuration}$/)
 end

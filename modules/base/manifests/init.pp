@@ -10,4 +10,5 @@ class base {
   include base::yum
   include base::yum::repos::unruly
   include base::yum::repos::epel
+  include base::collectd
 }

@@ -12,6 +12,7 @@ describe 'base::collectd' do
         .with_ensure('running')
         .with_enable(true)
         .that_requires('Package[collectd]')
+        .that_subscribes_to('File[/etc/collectd.conf]')
   }
 
   it { is_expected.to contain_file('/etc/collectd.d/')
@@ -44,6 +45,7 @@ describe 'base::collectd' do
             :mode   => '0644'
         )
         .that_requires('File[/etc/collectd.d]')
+        .that_notifies('Service[collectd]')
 
   }
 
@@ -59,6 +61,7 @@ describe 'base::collectd' do
             :mode   => '0644'
         )
         .that_requires('File[/etc/collectd.d]')
+        .that_notifies('Service[collectd]')
 
   }
 
@@ -77,6 +80,7 @@ describe 'base::collectd' do
             :mode   => '0644'
         )
         .that_requires('File[/etc/collectd.d]')
+        .that_notifies('Service[collectd]')
   }
 
   it {

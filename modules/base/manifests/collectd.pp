@@ -12,9 +12,10 @@ class base::collectd(
   }
 
   service { 'collectd':
-    ensure  => 'running',
-    enable  => true,
-    require => Package['collectd'],
+    ensure    => 'running',
+    enable    => true,
+    require   => Package['collectd'],
+    subscribe => File['/etc/collectd.conf'],
   }
 
   file { '/etc/collectd.d/':
@@ -38,6 +39,7 @@ class base::collectd(
     mode    => '0644',
     content => file('base/collectd/base.conf'),
     require => File['/etc/collectd.d'],
+    notify  => Service['collectd'],
   }
 
   file { '/etc/collectd.d/graphite.conf':
@@ -46,6 +48,7 @@ class base::collectd(
     mode    => '0644',
     content => template('base/collectd/graphite.conf.tpl'),
     require => File['/etc/collectd.d'],
+    notify  => Service['collectd'],
   }
 
   file { '/etc/collectd.d/unixsock.conf':
@@ -54,6 +57,7 @@ class base::collectd(
     mode    => '0644',
     content => file('base/collectd/unixsock.conf'),
     require => File['/etc/collectd.d'],
+    notify  => Service['collectd'],
   }
 
   file { '/var/run/collectd-unixsock':

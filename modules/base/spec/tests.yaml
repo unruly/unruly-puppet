@@ -1,6 +1,6 @@
 ---
 base::yum::plugins: foo_package
-base::yum::repos::unruly::baseurl: http://yum_unruly_baseurl.com
+base::yum::repos::unruly::baseurl: http://yum-unruly-baseurl.com
 base::yum::repos::epel::version: some-version
 base::collectd::version: some-version
 base::collectd::graphite::host: some-host

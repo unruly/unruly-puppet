@@ -8,7 +8,7 @@ describe 'base::yum::repos::unruly' do
             it { is_expected.to contain_yumrepo('unruly').with(
                 :name     => 'unruly',
                 :descr    => 'new Unruly-wide repo',
-                :baseurl  => 'http://yum_unruly_baseurl.com',
+                :baseurl  => 'http://yum-unruly-baseurl.com',
                 :gpgcheck => 0,
                 :priority => 'absent',
                 :metadata_expire => '5m',

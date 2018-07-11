@@ -3,5 +3,5 @@ base::yum::plugins: foo_package
 base::yum::repos::unruly::baseurl: http://yum-unruly-baseurl.com
 base::yum::repos::epel::version: some-version
 base::collectd::version: some-version
-base::collectd::graphite::host: some-host
-base::collectd::graphite::port: some-port
+base::collectd::backend::host: some-host
+base::collectd::backend::port: some-port

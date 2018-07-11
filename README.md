@@ -13,7 +13,8 @@ Modules for Unruly's puppet codebase
 |              | `base::yum`                 | Installs base yum plugins on CentOS 7 images. Uses hiera to source plugins by default, but can be customised.  |
 |              | `base::yum::clean`          |   Sets up a cronjob to clean Yum repo metadata once per day at random, determined by FQDN. |
 |              | `base::yum::repos::unruly`  | Sets up unruly repository configuration for yum. |
-|              | `base::yum::repos::epel`  | Sets up unruly repository configuration for EPEL. |  
+|              | `base::yum::repos::epel`    | Sets up unruly repository configuration for EPEL. |  
 |              | `base::ssh::server`         |   Ensures sshd is running and sets up sshd configuration. | 
 |              | `base::ssh::server::config` | Configures the SSH daemon. |
 |              | `base::ntp`                 | Installs ntp and ensures that the daemon is running. |  
+|              | `base::collectd`            | Installs collectd, provides configuration and ensures service is running. |  

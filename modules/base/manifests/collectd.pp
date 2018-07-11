@@ -2,10 +2,20 @@
 #
 # Sets up and configures collectd
 #
+# === Parameters:
+#
+# [*version*]
+#  Desired version of collectd
+#
+# [*backend_host*]
+#  Designated hostname for a backend i.e. graphite
+#
+# [*backend_port*]
+#  Designated port for a backend i.e. graphite
 class base::collectd(
   $version        = hiera('base::collectd::version'),
-  $graphite_host  = hiera('base::collectd::graphite::host'),
-  $graphite_port  = hiera('base::collectd::graphite::port'),
+  $backend_host  = hiera('base::collectd::backend::host'),
+  $backend_port  = hiera('base::collectd::backend::port'),
 ) {
   package { 'collectd':
     ensure => $version,

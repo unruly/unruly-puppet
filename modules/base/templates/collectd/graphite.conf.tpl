@@ -1,8 +1,8 @@
 LoadPlugin write_graphite
 <Plugin write_graphite>
   <Carbon>
-    Host "<%= @graphite_host %>"
-    Port "<%= @graphite_port %>"
+    Host "<%= @backend_host %>"
+    Port "<%= @backend_port %>"
     Protocol "tcp"
     Prefix "collectd."
     StoreRates true

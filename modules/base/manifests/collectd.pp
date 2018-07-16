@@ -13,7 +13,7 @@
 # [*backend_port*]
 #  Designated port for a backend i.e. graphite
 class base::collectd(
-  $version        = hiera('base::collectd::version'),
+  $version       = hiera('base::collectd::version'),
   $backend_host  = hiera('base::collectd::backend::host'),
   $backend_port  = hiera('base::collectd::backend::port'),
 ) {
@@ -43,35 +43,13 @@ class base::collectd(
     content => file('base/collectd/collectd.conf'),
   }
 
-  file { '/etc/collectd.d/base.conf':
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    content => file('base/collectd/base.conf'),
-    require => File['/etc/collectd.d'],
-    notify  => Service['collectd'],
-  }
-
-  file { '/etc/collectd.d/graphite.conf':
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    content => template('base/collectd/graphite.conf.tpl'),
-    require => File['/etc/collectd.d'],
-    notify  => Service['collectd'],
-  }
-
-  file { '/etc/collectd.d/unixsock.conf':
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    content => file('base/collectd/unixsock.conf'),
-    require => File['/etc/collectd.d'],
-    notify  => Service['collectd'],
-  }
-
   file { '/var/run/collectd-unixsock':
     ensure => 'link',
     target => 'collectd.sock'
   }
+
+  base::collectd::config {'base.conf'    : content => file('base/collectd/base.conf')}
+  base::collectd::config {'graphite.conf': content => template('base/collectd/graphite.conf.tpl')}
+  base::collectd::config {'unixsock.conf': content => file('base/collectd/unixsock.conf')}
+
 }

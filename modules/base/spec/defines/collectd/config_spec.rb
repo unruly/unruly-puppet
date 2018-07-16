@@ -1,0 +1,25 @@
+require 'spec_helper'
+
+describe 'base::collectd::config' do
+  let(:title) { 'test_config.conf' }
+  let(:params) do {
+      :content => 'some-content'
+  }
+  end
+  let(:pre_condition) { 'include base::collectd' }
+
+  it { is_expected.to compile }
+
+  it {
+      should contain_file('/etc/collectd.d/test_config.conf')
+       .with(
+           :owner   => 'root',
+           :group   => 'root',
+           :mode    => '0644'
+       )
+       .that_requires('File[/etc/collectd.d]')
+       .that_notifies('Service[collectd]')
+       .with_content('some-content')
+  }
+
+end

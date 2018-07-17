@@ -2,10 +2,7 @@ require 'spec_helper'
 
 describe 'base::collectd::config' do
   let(:title) { 'test_config.conf' }
-  let(:params) do {
-      :content => 'some-content'
-  }
-  end
+  let(:params) {{ :content => 'some-content' }}
   let(:pre_condition) { 'include base::collectd' }
 
   it { is_expected.to compile }

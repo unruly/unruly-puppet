@@ -16,9 +16,12 @@ class base::collectd(
   $version       = hiera('base::collectd::version'),
   $backend_host  = hiera('base::collectd::backend::host'),
   $backend_port  = hiera('base::collectd::backend::port'),
+  $repository    = Class['base::yum::repos::epel']
 ) {
+
   package { 'collectd':
-    ensure => $version,
+    ensure  => $version,
+    require => $repository,
   }
 
   service { 'collectd':

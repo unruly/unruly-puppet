@@ -3,10 +3,12 @@
 # Installs syslog-ng for system logging and removes known incompatible logging packages
 #
 class base::syslog_ng(
-  $version = hiera('base::syslog_ng::version')
+  $version = hiera('base::syslog_ng::version'),
+  $repository = Class['base::yum::repos::epel']
 ) {
   package { 'syslog-ng' :
-    ensure => $version,
+    ensure  => $version,
+    require => $repository,
   }
 
   file { '/etc/syslog-ng/syslog-ng.conf' :
@@ -20,7 +22,7 @@ class base::syslog_ng(
 
   service { 'syslog-ng' :
     ensure  => 'running',
-    require => Package['syslog-ng']
+    require => Package['syslog-ng'],
   }
 
   package { 'rsyslog' :

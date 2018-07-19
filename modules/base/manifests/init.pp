@@ -14,9 +14,9 @@ class base {
 
   include base::yum
   include base::yum::repos::unruly
-  class { 'base::yum::repos::epel': }
-  ->
-  class { 'base::collectd': }
+  include base::yum::repos::epel
+
+  include base::collectd
 
   include base::syslog_ng
 }

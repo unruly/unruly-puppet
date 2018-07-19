@@ -2,10 +2,13 @@ require 'spec_helper'
 
 describe 'base::collectd' do
 
+  let(:pre_condition) { 'include base::yum::repos::epel' }
+
   it { is_expected.to compile }
 
   it { is_expected.to contain_package('collectd')
         .with_ensure('some-version')
+        .that_requires('Class[base::yum::repos::epel]')
   }
 
   it { is_expected.to contain_service('collectd')
@@ -17,11 +20,11 @@ describe 'base::collectd' do
 
   it { is_expected.to contain_file('/etc/collectd.d/')
         .with(
-            :ensure => 'directory',
             :owner  => 'root',
             :group  => 'root',
             :mode   => '0755',
         )
+        .with_ensure('directory')
   }
 
   it { is_expected.to contain_file('/etc/collectd.conf')
@@ -90,9 +93,9 @@ describe 'base::collectd' do
 
   it { is_expected.to  contain_file('/var/run/collectd-unixsock')
         .with(
-            :ensure => 'link',
             :target => 'collectd.sock'
         )
+        .with_ensure('link')
   }
 
 end

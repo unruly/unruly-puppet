@@ -5,3 +5,4 @@ base::yum::repos::epel::version: some-version
 base::collectd::version: some-version
 base::collectd::backend::host: some-host
 base::collectd::backend::port: some-port
+base::syslog_ng::version: some-version

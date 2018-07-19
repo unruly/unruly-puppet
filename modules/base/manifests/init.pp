@@ -17,4 +17,6 @@ class base {
   class { 'base::yum::repos::epel': }
   ->
   class { 'base::collectd': }
+
+  include base::syslog_ng
 }

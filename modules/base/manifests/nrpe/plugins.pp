@@ -21,6 +21,7 @@ class base::nrpe::plugins(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
+    content => file('base/nrpe/base-plugins.cfg'),
     require => [
       File['/etc/nrpe.d'],
       Package[

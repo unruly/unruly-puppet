@@ -21,7 +21,7 @@ describe 'base::nrpe::plugins' do
     .that_requires('Package[nagios-plugins-disk]')
     .that_requires('Package[nagios-plugins-load]')
     .that_requires('Package[nagios-plugins-procs]')
-
+    .with_content(/^command\[check_load]=.*$/)
   }
 
 end

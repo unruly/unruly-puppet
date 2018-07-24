@@ -20,4 +20,6 @@ class base {
   include base::collectd
 
   include base::syslog_ng
+
+  include base::nrpe
 }

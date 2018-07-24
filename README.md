@@ -21,3 +21,4 @@ Modules for Unruly's puppet codebase
 |              | `base::collectd`            | Installs collectd, provides configuration, and ensures service is running. |  
 |              | `base::collectd::config`    | Defines configuration resource for backend service (e.g. graphite). |  
 |              | `base::syslog_ng`           | Installs syslog-ng for system logging and removes known incompatible logging packages |  
+|              | `base::nrpe`                | Installs nrpe, provides base configuration, and ensures service is running |  

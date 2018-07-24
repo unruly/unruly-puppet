@@ -3,7 +3,14 @@ base::yum::plugins: foo_package
 base::yum::repos::unruly::baseurl: http://yum-unruly-baseurl.com
 base::yum::repos::artifactory::baseurl: http://url.com
 base::yum::repos::epel::version: some-version
+
 base::collectd::version: some-version
 base::collectd::backend::host: some-host
 base::collectd::backend::port: some-port
+
 base::syslog_ng::version: some-version
+
+base::nrpe::version: some-version
+base::nrpe::allowed_hosts:
+  - foo.nrpe.com
+  - bar.nrpe.com

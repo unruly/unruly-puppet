@@ -15,6 +15,7 @@ class base {
   include base::yum
   include base::yum::repos::unruly
   include base::yum::repos::epel
+  include base::yum::repos::artifactory
 
   include base::collectd
 

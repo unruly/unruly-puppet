@@ -35,4 +35,15 @@ describe 'base::nrpe' do
       .with_content(/^allowed_hosts=bar\.nrpe\.com,foo\.nrpe\.com,127\.0\.0\.1,::1$/)
   }
 
+  it {
+    is_expected.to contain_file('/etc/nrpe.d')
+      .with(
+        :ensure  => 'directory',
+        :owner   => 'root',
+        :group   => 'root',
+        :mode    => '0755',
+      )
+      .that_requires('Package[nrpe]')
+  }
+
 end

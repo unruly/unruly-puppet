@@ -15,6 +15,8 @@ class base::nrpe(
   $allowed_hosts = hiera('base::nrpe::allowed_hosts')
 ) {
 
+  include base::nrpe::plugins
+
   package { 'nrpe':
     ensure => $version
   }
@@ -32,6 +34,14 @@ class base::nrpe(
     owner   => 'root',
     mode    => '0644',
     content => template('base/nrpe/nrpe.cfg.tpl'),
+    require => Package['nrpe'],
+  }
+
+  file { '/etc/nrpe.d':
+    ensure  => 'directory',
+    group   => 'root',
+    owner   => 'root',
+    mode    => '0755',
     require => Package['nrpe'],
   }
 

@@ -14,3 +14,4 @@ base::nrpe::version: some-version
 base::nrpe::allowed_hosts:
   - foo.nrpe.com
   - bar.nrpe.com
+base::nrpe::plugins::version: some-plugins-version

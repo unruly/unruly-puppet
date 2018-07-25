@@ -25,5 +25,6 @@ define base::nrpe::check(
     ensure  => 'present',
     mode    => '0644',
     content => "command[${title}]=/usr/lib64/nagios/plugins/${script}",
+    notify  => Service['nrpe']
   }
 }

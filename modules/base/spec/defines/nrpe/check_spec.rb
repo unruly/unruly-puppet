@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'base::nrpe::check' do
   let(:title) { 'some-script' }
   let(:params) {{ :content => 'some-content' }}
+  let(:pre_condition) { ['include base::nrpe'] }
 
   it { is_expected.to compile }
 
@@ -20,6 +21,7 @@ describe 'base::nrpe::check' do
           :mode   => '0644',
           )
       .with_content('command[some-script]=/usr/lib64/nagios/plugins/some-script')
+      .that_notifies('Service[nrpe]')
   }
 
   describe 'passing in a script file with a file extension' do
@@ -42,6 +44,7 @@ describe 'base::nrpe::check' do
               :mode   => '0644',
               )
           .with_content('command[some-script]=/usr/lib64/nagios/plugins/some-script.py')
+          .that_notifies('Service[nrpe]')
       }
   end
 

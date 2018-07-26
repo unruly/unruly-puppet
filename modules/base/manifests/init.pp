@@ -22,4 +22,6 @@ class base {
   include base::syslog_ng
 
   include base::nrpe
+
+  include base::selinux
 }

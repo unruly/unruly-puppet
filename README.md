@@ -23,4 +23,5 @@ Modules for Unruly's puppet codebase
 |              | `base::syslog_ng`           | Installs syslog-ng for system logging and removes known incompatible logging packages |  
 |              | `base::nrpe`                | Installs nrpe, provides base configuration, and ensures service is running |  
 |              | `base::nrpe::plugins`       | Sets up and configures default NRPE plugins for every node |  
-|              | `base::nrpe::check`         | Defines nrpe check configuration and plugin directory structure. |  
+|              | `base::nrpe::check`         | Defines nrpe check configuration and plugin directory structure. |
+|              | `base::selinux`             | Sets up SELinux for the system. |    

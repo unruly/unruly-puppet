@@ -81,9 +81,7 @@ allowed_hosts=127.0.0.1,::1
 #
 # Values: 0=do not allow arguments, 1=allow command arguments
 
-dont_blame_nrpe=0
-
-
+dont_blame_nrpe=1
 
 # BASH COMMAND SUBSTITUTION
 # This option determines whether or not the NRPE daemon will allow clients

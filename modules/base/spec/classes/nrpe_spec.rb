@@ -33,6 +33,7 @@ describe 'base::nrpe' do
   it {
     is_expected.to contain_file('/etc/nagios/nrpe.cfg')
       .with_content(/^allowed_hosts=bar\.nrpe\.com,foo\.nrpe\.com,127\.0\.0\.1,::1$/)
+      .with_content(/^dont_blame_nrpe=1$/)
   }
 
   it {

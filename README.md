@@ -1,8 +1,51 @@
 # unruly-puppet
 
 [![Build Status](https://travis-ci.org/unruly/unruly-puppet.svg?branch=master)](https://travis-ci.org/unruly/unruly-puppet)
+![GitHub tag](https://img.shields.io/github/tag/unruly/unruly-puppet.svg)
+![GitHub](https://img.shields.io/github/license/unruly/unruly-puppet.svg)
 
-Modules for Unruly's puppet codebase
+
+## Contents
+
+ - [Introduction](#introduction)
+ - [Testing](#testing)
+ - [Versioning](#versioning)
+ - [Usage](#usage)
+ - [Modules](#modules)
+ 
+## Introduction
+
+This project contains puppet modules used by Unruly for configuration management, developed in the open to improve code quality and decouple data (e.g. credentials and secrets) from configuration.
+
+## Testing
+
+We use [pdk](https://puppet.com/docs/pdk/1.x/pdk.html) to test and build this project.
+
+```bash
+$ ./lint-and-test.sh # run puppet parser to validate files, and pdk test on all modules
+```
+
+## Versioning
+
+unruly-puppet is versioned with tags against the master branch e.g. `v0.0.10`
+
+We aim to support [Semantic Versioning](https://semver.org/) as closely as possible.
+
+## Usage
+
+Individual modules can be imported in your Puppetfile using `librarian` e.g.
+
+```ruby
+  def unruly_mod(name, version)
+    mod "unruly/#{name}",
+      :git    => 'git@github.com:unruly/unruly-puppet.git',
+      :path   => "modules/#{name}",
+      :ref    => version
+  end
+  
+  unruly_mod 'base', 'v0.0.10'      
+```
+
 
 ## Modules
 

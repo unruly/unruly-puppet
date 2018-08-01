@@ -11,8 +11,8 @@
 #   Hash of credentials to provide e.g. { user => 'foo', pass => 'some-secret', token => 'mytoken' }
 #
 define credentials(
-  $system,
-  $config
+  String $system,
+  Hash[String, String] $config
 ) {
 
   if !defined(File['/etc/credentials']) {

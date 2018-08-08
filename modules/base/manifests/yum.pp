@@ -8,7 +8,7 @@
 #  Array of packages to be installed, defaults to packages listed in hiera
 #
 class base::yum(
-  $yum_pkgs = hiera('base::yum::plugins')
+  Array[String] $yum_pkgs = hiera('base::yum::plugins')
 ) {
 
   package { $yum_pkgs: ensure => 'installed' }

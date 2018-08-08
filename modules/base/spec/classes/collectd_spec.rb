@@ -72,7 +72,7 @@ describe 'base::collectd' do
     is_expected_to_have_plugins('/etc/collectd.d/graphite.conf', %w(write_graphite))
     is_expected.to  contain_file('/etc/collectd.d/graphite.conf')
         .with_content(/\s+Host "some-host"$/)
-        .with_content(/\s+Port "some-port"$/)
+        .with_content(/\s+Port "1337"$/)
     is_expected_to_have_config('/etc/collectd.d/graphite.conf', 'write_graphite')
   }
 

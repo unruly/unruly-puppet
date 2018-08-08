@@ -11,8 +11,8 @@
 #  List of hostnames permitted to run NRPE queries
 #
 class base::nrpe(
-  $version  = hiera('base::nrpe::version'),
-  $allowed_hosts = hiera('base::nrpe::allowed_hosts')
+  String $version  = hiera('base::nrpe::version'),
+  Array[String] $allowed_hosts = hiera('base::nrpe::allowed_hosts')
 ) {
 
   include base::nrpe::plugins

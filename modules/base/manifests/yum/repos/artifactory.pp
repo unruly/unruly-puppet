@@ -11,8 +11,8 @@
 #   Set ensure property for the yumrepo resource
 #
 class base::yum::repos::artifactory(
-  $baseurl = hiera('base::yum::repos::artifactory::baseurl'),
-  $ensure  = 'present'
+  String $baseurl = hiera('base::yum::repos::artifactory::baseurl'),
+  Enum[absent, present] $ensure  = 'present'
 ) {
   yumrepo { 'UnrulyArtifactory' :
     ensure   => $ensure,

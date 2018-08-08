@@ -11,8 +11,8 @@
 #   Set ensure property for the yumrepo resource
 #
 class base::yum::repos::unruly(
-  $baseurl = hiera('base::yum::repos::unruly::baseurl'),
-  $ensure = 'present'
+  String $baseurl = hiera('base::yum::repos::unruly::baseurl'),
+  Enum[present, absent] $ensure = 'present'
 ) {
   yumrepo { 'unruly' :
     ensure          => $ensure,

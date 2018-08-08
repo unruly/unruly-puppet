@@ -11,8 +11,8 @@
 #   Specifies script file name and defaults to $title.
 #
 define base::nrpe::check(
-  $content,
-  $script = $title
+  String $content,
+  String $script = $title
 ) {
 
   file { "/usr/lib64/nagios/plugins/${script}":

@@ -8,7 +8,7 @@
 #   To specify the version of epel-release
 #
 class base::yum::repos::epel(
-  $version = hiera('base::yum::repos::epel::version')
+  String $version = hiera('base::yum::repos::epel::version')
 ) {
   package { 'epel-release':
     ensure => $version,

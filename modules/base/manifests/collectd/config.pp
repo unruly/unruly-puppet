@@ -11,8 +11,8 @@
 #   Specifies configuration file name and defaults to $title.
 #
 define base::collectd::config(
-  $content,
-  $filename = $title
+  String $content,
+  String $filename = $title
 ) {
 
   file { "/etc/collectd.d/${filename}":

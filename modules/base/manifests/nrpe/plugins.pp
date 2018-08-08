@@ -8,7 +8,7 @@
 #  Desired version of NRPE default plugins
 #
 class base::nrpe::plugins(
-  $version = hiera('base::nrpe::plugins::version')
+  String $version = hiera('base::nrpe::plugins::version')
 ) {
 
   package {

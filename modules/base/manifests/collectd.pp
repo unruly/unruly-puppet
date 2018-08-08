@@ -13,10 +13,10 @@
 # [*backend_port*]
 #  Designated port for a backend i.e. graphite
 class base::collectd(
-  $version       = hiera('base::collectd::version'),
-  $backend_host  = hiera('base::collectd::backend::host'),
-  $backend_port  = hiera('base::collectd::backend::port'),
-  $repository    = Class['base::yum::repos::epel']
+  String $version             = hiera('base::collectd::version'),
+  String $backend_host        = hiera('base::collectd::backend::host'),
+  Integer $backend_port       = hiera('base::collectd::backend::port'),
+  Type[Resource] $repository  = Class['base::yum::repos::epel']
 ) {
 
   package { 'collectd':

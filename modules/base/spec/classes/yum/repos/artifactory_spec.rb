@@ -7,7 +7,7 @@ describe 'base::yum::repos::artifactory' do
   describe('ensure artifactory repo') do
 
     it { is_expected.to contain_yumrepo('UnrulyArtifactory').with(
-        :baseurl  => 'http://url.com',
+        :baseurl  => 'https://foo:bar@url.com',
         :gpgcheck => 0,
         :descr    => 'Unruly specific packages hosted on Artifactory'
         )

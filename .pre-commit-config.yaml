@@ -1,0 +1,7 @@
+repos:
+  - repo: local
+    hooks:
+      - id: lint-and-test
+        language: script
+        name: Puppet codebase must pass tests and linting
+        entry: lint-and-test.sh

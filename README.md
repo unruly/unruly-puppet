@@ -8,6 +8,7 @@
 ## Contents
 
  - [Introduction](#introduction)
+ - [Building](#building)
  - [Testing](#testing)
  - [Versioning](#versioning)
  - [Usage](#usage)
@@ -16,6 +17,16 @@
 ## Introduction
 
 This project contains puppet modules used by Unruly for configuration management, developed in the open to improve code quality and decouple data (e.g. credentials and secrets) from configuration.
+
+## Building
+
+unruly-puppet requires Puppet, Ruby, [pdk](https://puppet.com/docs/pdk/1.x/pdk.html), and [pre-commit](https://pre-commit.com/) installed.
+
+```bash
+$ git clone git@github.com:unruly/unruly-puppet.git
+
+$ pre-commit install # install validation pre-commit hooks
+```
 
 ## Testing
 

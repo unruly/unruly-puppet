@@ -9,6 +9,7 @@ describe 'base::nrpe::plugins' do
   it { is_expected.to contain_package('nagios-plugins-disk').with_ensure('some-plugins-version') }
   it { is_expected.to contain_package('nagios-plugins-procs').with_ensure('some-plugins-version') }
   it { is_expected.to contain_package('nagios-plugins-load').with_ensure('some-plugins-version') }
+  it { is_expected.to contain_package('nagios-plugins-ntp').with_ensure('some-plugins-version') }
 
   it {
     is_expected.to contain_file('/etc/nrpe.d/base-plugins.cfg').with(
@@ -21,7 +22,11 @@ describe 'base::nrpe::plugins' do
     .that_requires('Package[nagios-plugins-disk]')
     .that_requires('Package[nagios-plugins-load]')
     .that_requires('Package[nagios-plugins-procs]')
-    .with_content(/^command\[check_load]=.*$/)
+    .that_requires('Package[nagios-plugins-ntp]')
+    .with_content(/^command\[check_disk.*$/)
+    .with_content(/^command\[check_load.*$/)
+    .with_content(/^command\[check_procs.*$/)
+    .with_content(/^command\[check_ntp.*$/)
   }
 
 end

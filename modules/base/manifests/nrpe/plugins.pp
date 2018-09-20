@@ -15,6 +15,7 @@ class base::nrpe::plugins(
     'nagios-plugins-load':  ensure => $version;
     'nagios-plugins-disk':  ensure => $version;
     'nagios-plugins-procs': ensure => $version;
+    'nagios-plugins-ntp':   ensure => $version;
   }
 
   file { '/etc/nrpe.d/base-plugins.cfg':
@@ -27,7 +28,8 @@ class base::nrpe::plugins(
       Package[
         'nagios-plugins-disk',
         'nagios-plugins-load',
-        'nagios-plugins-procs'
+        'nagios-plugins-procs',
+        'nagios-plugins-ntp'
       ]
     ],
     notify  => Service['nrpe']

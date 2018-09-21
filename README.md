@@ -79,3 +79,4 @@ Individual modules can be imported in your Puppetfile using `librarian` e.g.
 |              | `base::nrpe::plugins`       | Sets up and configures default NRPE plugins for every node |  
 |              | `base::nrpe::check`         | Defines nrpe check configuration and plugin directory structure. |
 |              | `base::selinux`             | Sets up SELinux for the system. |    
+|              | `base::python`              | Installs python and pip. |    

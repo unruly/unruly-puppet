@@ -14,4 +14,5 @@ describe 'base' do
   it { is_expected.to contain_class('base::syslog_ng') }
   it { is_expected.to contain_class('base::nrpe') }
   it { is_expected.to contain_class('base::selinux') }
+  it { is_expected.to contain_class('base::python') }
 end

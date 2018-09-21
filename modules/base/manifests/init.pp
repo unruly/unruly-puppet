@@ -24,4 +24,6 @@ class base {
   include base::nrpe
 
   include base::selinux
+
+  include base::python
 }

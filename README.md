@@ -72,7 +72,8 @@ Individual modules can be imported in your Puppetfile using `librarian` e.g.
 |              | `base::ssh::server`         | Ensures sshd is running and sets up sshd configuration. | 
 |              | `base::ssh::server::config` | Configures the SSH daemon. |
 |              | `base::ntp`                 | Installs ntp and ensures that the daemon is running. |  
-|              | `base::collectd`            | Installs collectd, provides configuration, and ensures service is running. |  
+|              | `base::collectd`            | Installs collectd, provides configuration, and ensures service is running. |
+|              | `base::collectd::plugins`   | Installs collectd plugins. |  
 |              | `base::collectd::config`    | Defines configuration resource for backend service (e.g. graphite). |  
 |              | `base::syslog_ng`           | Installs syslog-ng for system logging and removes known incompatible logging packages |  
 |              | `base::nrpe`                | Installs nrpe, provides base configuration, and ensures service is running |  

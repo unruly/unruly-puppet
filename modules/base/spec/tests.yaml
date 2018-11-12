@@ -12,6 +12,8 @@ some/credentials/key:
   user: foo
   pass: bar
 
+base::collectd::packages:
+  - some-package
 base::collectd::version: some-version
 base::collectd::backend::host: some-host
 base::collectd::backend::port: 1337

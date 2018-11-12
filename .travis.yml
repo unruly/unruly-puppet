@@ -1,6 +1,6 @@
 language: ruby
 before_install:
- - wget "https://pm.puppet.com/cgi-bin/pdk_download.cgi?dist=ubuntu&rel=14.04&arch=amd64&ver=latest" -O pdk.deb
+ - wget "https://pm.puppet.com/cgi-bin/pdk_download.cgi?dist=ubuntu&rel=14.04&arch=amd64&ver=1.7.0.0" -O pdk.deb
  - sudo dpkg -i pdk.deb
  - gem install puppet-lint
 script: ./lint-and-test.sh

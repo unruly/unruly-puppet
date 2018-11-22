@@ -1,0 +1,10 @@
+{
+  "name": "unruly-monitoring",
+  "version": "0.1.0",
+  "author": "unruly",
+  "summary": "",
+  "license": "MIT",
+  "source": "",
+  "dependencies": [],
+  "pdk-version": "1.7.0"
+}

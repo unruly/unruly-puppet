@@ -38,7 +38,21 @@ $ ./lint-and-test.sh # run puppet parser to validate files, and pdk test on all 
 
 ### Smoke Testing with Docker
 
-This functionality is currently in development.
+The feedback loop for applying a puppet class in a Docker container is conveniently short.
+
+The Docker configuration for the smoke test environment implements a masterless puppet agent in order to optimise for quick application of catalogs. 
+
+#### Usage
+
+The smoke tests require Docker to be installed locally.
+
+Users should ensure any hiera data is configured in `hieradata/` yaml files, and those files are referenced in `hiera.yaml`. 
+
+To run smoke tests on a designated Puppet class: 
+
+```bash
+$ ./smoke-test.sh my_puppet_class_name
+```
 
 ## Versioning
 

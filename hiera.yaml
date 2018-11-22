@@ -1,0 +1,7 @@
+---
+:backends:
+  - yaml
+:hierarchy:
+  - monitoring
+:yaml:
+  :datadir: "/puppet/hieradata/"

@@ -36,6 +36,10 @@ We use [pdk](https://puppet.com/docs/pdk/1.x/pdk.html) to test and build this pr
 $ ./lint-and-test.sh # run puppet parser to validate files, and pdk test on all modules
 ```
 
+### Smoke Testing with Docker
+
+This functionality is currently in development.
+
 ## Versioning
 
 unruly-puppet is versioned with tags against the master branch e.g. `v0.0.10`

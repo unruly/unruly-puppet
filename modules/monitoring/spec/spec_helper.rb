@@ -27,11 +27,13 @@ end
 
 RSpec.configure do |c|
   c.default_facts = default_facts
+  c.module_path = '..'
   c.before :each do
     # set to strictest setting for testing
     # by default Puppet runs at warning level
     Puppet.settings[:strict] = :warning
   end
+  c.hiera_config = File.join(__FILE__, '..', 'hiera.yaml')
 end
 
 def ensure_module_defined(module_name)

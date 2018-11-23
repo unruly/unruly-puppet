@@ -3,7 +3,7 @@
 set -e
 
 function lint_files() {
-    find -name '*.pp' | xargs puppet-lint \
+    find modules/ -name '*.pp' | xargs puppet-lint \
         --with-filename \
         --fail-on-warnings
 }

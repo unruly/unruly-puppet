@@ -3,3 +3,4 @@ bin/
 .bundle/
 hieradata/*
 *.iml
+modules/**/spec/fixtures

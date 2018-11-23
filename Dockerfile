@@ -17,6 +17,8 @@ RUN rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm &
 VOLUME [ "/sys/fs/cgroup" ]
 CMD ["/usr/sbin/init"]
 
+# Add smoke test manifests
+COPY test_configuration /puppet/modules/test_configuration
 # Add all puppet modules
 COPY modules /puppet/modules
 # Add Hiera Data

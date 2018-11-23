@@ -50,8 +50,11 @@ Users should ensure any hiera data is configured in `hieradata/` yaml files, and
 
 To run smoke tests on a designated Puppet class: 
 
+Add the class you're requiring into a manifest inside the test_configuration/manifests directory.
+
+
 ```bash
-$ ./smoke-test.sh my_puppet_class_name
+$ ./smoke-test.sh test_configuration::my_puppet_class_name
 ```
 
 ## Versioning

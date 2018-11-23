@@ -2,9 +2,9 @@
 #
 # Packages all monitoring::* subclasses.
 #
-# == Dependencies:
-#
-#
 class monitoring {
-
+  include monitoring::nagios
+  include monitoring::nagios::plugins
+  include monitoring::nagios::nsca
+  include monitoring::nagios::xinetd
 }

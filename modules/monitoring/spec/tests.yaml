@@ -1,0 +1,6 @@
+base::yum::repos::epel::version : some-version
+monitoring::nagios::version : some-version
+monitoring::nagios::plugins::version : some-plugins-version
+monitoring::nagios::plugins::nrpe_version : some-nrpe-version
+monitoring::nagios::nsca::version : some-nsca-version
+monitoring::nagios::xinetd::version : some-xinetd-version

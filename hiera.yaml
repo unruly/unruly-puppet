@@ -2,6 +2,7 @@
 :backends:
   - yaml
 :hierarchy:
+  - base
   - monitoring
 :yaml:
   :datadir: "/puppet/hieradata/"

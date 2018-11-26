@@ -16,11 +16,13 @@
  
 ## Introduction
 
-This project contains puppet modules used by Unruly for configuration management, developed in the open to improve code quality and decouple data (e.g. credentials and secrets) from configuration.
+This project contains puppet modules used by Unruly for configuration management, developed in the open to improve code
+quality and decouple data (e.g. credentials and secrets) from configuration.
 
 ## Building
 
-unruly-puppet requires Puppet, Ruby, [pdk](https://puppet.com/docs/pdk/1.x/pdk.html), and [pre-commit](https://pre-commit.com/) installed.
+unruly-puppet requires Puppet, Ruby, [pdk](https://puppet.com/docs/pdk/1.x/pdk.html), and
+[pre-commit](https://pre-commit.com/) installed.
 
 ```bash
 $ git clone git@github.com:unruly/unruly-puppet.git
@@ -40,7 +42,8 @@ $ ./lint-and-test.sh # run puppet parser to validate files, and pdk test on all 
 
 The feedback loop for applying a puppet class in a Docker container is conveniently short.
 
-The Docker configuration for the smoke test environment implements a masterless puppet agent in order to optimise for quick application of catalogs. 
+The Docker configuration for the smoke test environment implements a masterless puppet agent in order to optimise for
+quick application of catalogs.
 
 #### Usage
 
@@ -51,7 +54,6 @@ Users should ensure any hiera data is configured in `hieradata/` yaml files, and
 To run smoke tests on a designated Puppet class: 
 
 Add the class you're requiring into a manifest inside the test_configuration/manifests directory.
-
 
 ```bash
 $ ./smoke-test.sh test_configuration::my_puppet_class_name

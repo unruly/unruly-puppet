@@ -45,6 +45,8 @@ The feedback loop for applying a puppet class in a Docker container is convenien
 The Docker configuration for the smoke test environment implements a masterless puppet agent in order to optimise for
 quick application of catalogs.
 
+For further documentation please see the [test_configuration README](unruly-puppet/test_configuration/README.md)
+
 #### Usage
 
 The smoke tests require Docker to be installed locally.

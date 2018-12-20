@@ -103,11 +103,14 @@ Individual modules can be imported in your Puppetfile using `librarian` e.g.
 |              | `base::syslog_ng`           | Installs syslog-ng for system logging and removes known incompatible logging packages |  
 |              | `base::nrpe`                | Installs nrpe, provides base configuration, and ensures service is running |  
 |              | `base::nrpe::plugins`       | Sets up and configures default NRPE plugins for every node |  
-|              | `base::nrpe::check`         | Defines nrpe check configuration and plugin directory structure. |
 |              | `base::selinux`             | Sets up SELinux for the system. |    
 |              | `base::python`              | Installs python and pip. |    
 | monitoring   | `monitoring`                | Includes `monitoring::*` subclasses. |    
 |              | `monitoring::nagios`        | Installs and starts nagios |    
 |              | `monitoring::nagios::plugins` | Installs a default set of nagios plugins. |    
 |              | `monitoring::nagios::nsca` | Installs nsca for accepting passive checks. |    
-|              | `monitoring::nagios::xinetd` | Installs xinetd. |    
+|              | `monitoring::nagios::xinetd` | Installs xinetd. |   
+| nrpe_custom_check | `nrpe_custom_check`           | Sets up an nrpe plugin and its configuration. | 
+|              | `nrpe_custom_check::plugin`        | Sets up an individual nrpe plugin script. | 
+|              | `nrpe_custom_check::plugin_config` | Sets up nrpe configuration for a plugin. | 
+|              | `nrpe_custom_check::sudo_config`   | Sets up sudoers configuration for an individual nrpe plugin that requires extra permissions. | 

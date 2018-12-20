@@ -1,6 +1,6 @@
 # == Define: nrpe_custom_check
 #
-# Manages an nrpe plugin and its configuration.
+# Sets up an nrpe plugin and its configuration.
 #
 # === Parameters:
 #

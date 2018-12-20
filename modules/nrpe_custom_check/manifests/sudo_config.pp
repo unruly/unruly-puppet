@@ -1,6 +1,6 @@
 # == Define: nrpe_custom_check::sudo_config
 #
-# Manages sudoers confiugation for an individual nrpe plugin that requires extra permissions.
+# Sets up sudoers configuration for an individual nrpe plugin that requires extra permissions.
 #
 # === Parameters:
 #

@@ -3,21 +3,34 @@ require 'spec_helper'
 describe 'nrpe_custom_check::plugin_config' do
   let(:pre_condition) { 'include base::nrpe' }
   let(:title) { 'plugin' }
+  let(:params) {
+    {
+      :path_to_plugin => '/some_path/plugin.sh',
+    }
+  }
+
+  it { is_expected.to contain_file('/some_path/unruly')
+                          .with(
+                              :ensure => 'directory',
+                              :group => 'root',
+                              :owner => 'root',
+                              )
+  }
 
   context 'has no command args, does not require sudo' do
     let(:params) {
       {
-          :requires_sudo => false,
-          :path_to_plugin => '/some_path/plugin.sh',
+        :requires_sudo => false,
+        :path_to_plugin => '/some_path/plugin.sh',
       }
     }
 
     it { is_expected.to contain_file('/some_path/unruly/plugin.cfg')
       .with(
-          :ensure => 'present',
-          :group => 'root',
-          :owner => 'root',
-          :mode  => '0644'
+        :ensure => 'present',
+        :group => 'root',
+        :owner => 'root',
+        :mode  => '0644'
       )
       .that_notifies('Service[nrpe]')
       .with_content("command[plugin]=/some_path/plugin.sh \n")
@@ -44,10 +57,12 @@ describe 'nrpe_custom_check::plugin_config' do
       .with_content("command[plugin]=/some_path/plugin.sh --flag example-arg\n")
     }
 
-    it { is_expected.to contain_nrpe_custom_check__sudo_config('plugin').with(
+    it { is_expected.to contain_nrpe_custom_check__sudo_config('plugin')
+      .with(
         :path_to_plugin => '/some_path/plugin.sh',
         :ensure       => 'absent'
-    ) }
+      )
+    }
   end
 
   context 'no command args, requires sudo' do
@@ -70,29 +85,31 @@ describe 'nrpe_custom_check::plugin_config' do
     }
 
     it { is_expected.to contain_nrpe_custom_check__sudo_config('plugin').with(
-        :path_to_plugin => '/some_path/plugin.sh',
-        :ensure       => 'present'
+      :path_to_plugin => '/some_path/plugin.sh',
+      :ensure       => 'present'
     ) }
   end
 
   context 'ensure absent' do
     let(:params) {
       {
-          :ensure => 'absent',
-          :requires_sudo => true,
-          :path_to_plugin => '/some_path/plugin.sh',
+        :ensure => 'absent',
+        :requires_sudo => true,
+        :path_to_plugin => '/some_path/plugin.sh',
       }
     }
 
     it { is_expected.to contain_file('/some_path/unruly/plugin.cfg')
       .with(
-          :ensure => 'absent'
+        :ensure => 'absent'
       )
     }
 
-    it { is_expected.to contain_nrpe_custom_check__sudo_config('plugin').with(
+    it { is_expected.to contain_nrpe_custom_check__sudo_config('plugin')
+      .with(
         :path_to_plugin => '/some_path/plugin.sh',
         :ensure       => 'absent'
-    ) }
+      )
+    }
   end
 end

@@ -1,0 +1,10 @@
+base::nrpe::version: some-version
+base::nrpe::allowed_hosts:
+  - foo.nrpe.com
+  - bar.nrpe.com
+base::nrpe::plugins::version: some-version
+
+nrpe_custom_check::plugins_directory: /some_path
+nrpe_custom_check::plugin::nrpe_class: base::nrpe
+nrpe_custom_check::sudo_config::user: some_user
+nrpe_custom_check::plugin_config::nrpe_cfg_dir: /some_path

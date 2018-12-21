@@ -3,19 +3,6 @@ require 'spec_helper'
 describe 'nrpe_custom_check::plugin_config' do
   let(:pre_condition) { 'include base::nrpe' }
   let(:title) { 'plugin' }
-  let(:params) {
-    {
-      :path_to_plugin => '/some_path/plugin.sh',
-    }
-  }
-
-  it { is_expected.to contain_file('/some_path/unruly')
-                          .with(
-                              :ensure => 'directory',
-                              :group => 'root',
-                              :owner => 'root',
-                              )
-  }
 
   context 'has no command args, does not require sudo' do
     let(:params) {

@@ -28,5 +28,12 @@ describe 'base::nrpe::plugins' do
     .with_content(/^command\[check_procs.*$/)
     .with_content(/^command\[check_ntp.*$/)
   }
+  it {
+    is_expected.to contain_file('/etc/nrpe.d/unruly').with(
+      :ensure => 'directory',
+      :owner  => 'root',
+      :group  => 'root'
+    )
+  }
 
 end

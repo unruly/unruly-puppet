@@ -26,13 +26,6 @@ define nrpe_custom_check::plugin_config(
   $plugin_args = '',
   $requires_sudo = false,
 ) {
-
-  file { "${nrpe_cfg_dir}/unruly":
-    ensure => 'directory',
-    owner  => 'root',
-    group  => 'root',
-  }
-
   $command = $requires_sudo ? {
     true  => "/usr/bin/sudo ${path_to_plugin} ${plugin_args}",
     false => "${path_to_plugin} ${plugin_args}",

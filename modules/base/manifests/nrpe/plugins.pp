@@ -35,4 +35,10 @@ class base::nrpe::plugins(
     notify  => Service['nrpe']
   }
 
+  file { '/etc/nrpe.d/unruly':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+  }
+
 }

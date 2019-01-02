@@ -4,11 +4,8 @@
 #
 # === Parameters:
 #
-# [*plugin_module_path*]
-#   Puppet module in which to find the nrpe plugin script.
-#
-# [*plugin_name*]
-#   The file name of the nrpe plugin script.
+# [*content*]
+#   Contents of the plugin script file.
 #
 # [*ensure*]
 #   Whether resources for a check should exist or not. Can be 'present' or 'absent'.
@@ -23,22 +20,22 @@
 #   Boolean, true if the plugin requires root permissions.
 #
 define nrpe_custom_check(
-  $plugin_module_path,
-  $plugin_name,
+  $content,
   $ensure = 'present',
   $plugin_args = '',
   $plugins_directory = hiera('nrpe_custom_check::plugins_directory'),
   $requires_sudo = false,
 ) {
-  nrpe_custom_check::plugin { $plugin_name:
-    ensure             => $ensure,
-    plugin_module_path => $plugin_module_path
+
+  nrpe_custom_check::plugin { $name:
+    ensure  => $ensure,
+    content => $content,
   }
 
   nrpe_custom_check::plugin_config { $name:
     ensure         => $ensure,
     plugin_args    => $plugin_args,
-    path_to_plugin => "${plugins_directory}/${plugin_name}",
-    requires_sudo  => $requires_sudo
+    path_to_plugin => "${plugins_directory}/${name}",
+    requires_sudo  => $requires_sudo,
   }
 }

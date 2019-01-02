@@ -4,8 +4,8 @@
 #
 # === Parameters:
 #
-# [*plugin_module_path*]
-#   Module in which to find the plugin script.
+# [*content*]
+#   Contents of the plugin script file.
 #
 # [*ensure*]
 #   Whether the plugin file should exist or not. Can be 'present' or 'absent'.
@@ -17,7 +17,7 @@
 #   The absolute path to the directory containing the nrpe plugins.
 #
 define nrpe_custom_check::plugin(
-  $plugin_module_path,
+  $content,
   $ensure = 'present',
   $nrpe_class = hiera('nrpe_custom_check::plugin::nrpe_class'),
   $nrpe_plugins_dir = hiera('nrpe_custom_check::plugins_directory'),
@@ -28,6 +28,6 @@ define nrpe_custom_check::plugin(
     group   => 'root',
     mode    => '0755',
     require => [Class[$nrpe_class]],
-    source  => "puppet:///modules/${plugin_module_path}/${name}",
+    content => $content,
   }
 }

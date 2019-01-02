@@ -5,7 +5,7 @@ describe 'nrpe_custom_check::plugin' do
 
   let(:params) do
     {
-        :plugin_module_path => "module_path"
+      :content => 'some_content'
     }
   end
 
@@ -20,6 +20,6 @@ describe 'nrpe_custom_check::plugin' do
       :mode  => '0755'
     )
     .that_requires('Class[base::nrpe]')
-    .with_source('puppet:///modules/module_path/plugin.sh')
+    .with_content('some_content')
   }
 end

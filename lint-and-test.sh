@@ -2,6 +2,9 @@
 
 set -e
 
+BOLD='\e[1m'
+NC='\033[0m'
+
 function lint_files() {
     find modules/ -name '*.pp' | xargs puppet-lint \
         --with-filename \
@@ -10,10 +13,10 @@ function lint_files() {
 
 function test_modules() {
     for MODULE in $(ls modules); do
-        echo "Running tests for ${MODULE}"
-        pushd modules/${MODULE}
+        echo -e "\nRunning tests for ${BOLD}${MODULE}${NC}"
+        pushd modules/${MODULE} > /dev/null
         pdk test unit
-        popd
+        popd > /dev/null
     done
 }
 

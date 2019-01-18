@@ -11,6 +11,9 @@ class base::nrpe::plugins(
   String $version = hiera('base::nrpe::plugins::version')
 ) {
 
+  include base::nrpe::plugins::disk_params
+  include base::nrpe::plugins::load_params
+
   package {
     'nagios-plugins-load':  ensure => $version;
     'nagios-plugins-disk':  ensure => $version;

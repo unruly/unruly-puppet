@@ -28,3 +28,14 @@ base::nrpe::plugins::version: some-plugins-version
 
 base::python::python_version: some-version
 base::python::python2_pip_version: some-version
+
+base::nrpe::disk_params::command: 'some_command'
+base::nrpe::disk_params::important: false
+base::nrpe::disk_params::thr_warning: 'Some %'
+base::nrpe::disk_params::thr_critical: 'Some %'
+
+base::nrpe::load_params::command: 'some_command'
+base::nrpe::load_params::important: false
+base::nrpe::load_params::thr_warning: 'some_numbers'
+base::nrpe::load_params::thr_critical: 'some_numbers'
+base::nrpe::load_params::attempts: 0

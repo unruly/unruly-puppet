@@ -8,3 +8,14 @@ nrpe_custom_check::plugins_directory: /some_path
 nrpe_custom_check::plugin::nrpe_class: base::nrpe
 nrpe_custom_check::sudo_config::user: some_user
 nrpe_custom_check::plugin_config::nrpe_cfg_dir: /some_path
+
+base::nrpe::disk_params::command: 'some_command'
+base::nrpe::disk_params::important: false
+base::nrpe::disk_params::thr_warning: 'Some %'
+base::nrpe::disk_params::thr_critical: 'Some %'
+
+base::nrpe::load_params::command: 'some_command'
+base::nrpe::load_params::important: false
+base::nrpe::load_params::thr_warning: 'some_numbers'
+base::nrpe::load_params::thr_critical: 'some_numbers'
+base::nrpe::load_params::attempts: 0

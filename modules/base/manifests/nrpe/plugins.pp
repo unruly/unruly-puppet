@@ -27,15 +27,25 @@ class base::nrpe::plugins(
     mode    => '0644',
     content => file('base/nrpe/base-plugins.cfg'),
     require => [
-      File['/etc/nrpe.d'],
+      File['/etc/nrpe.d', '/etc/sudoers.d/unruly_nrpe_check_disk'],
       Package[
         'nagios-plugins-disk',
         'nagios-plugins-load',
         'nagios-plugins-procs',
         'nagios-plugins-ntp'
-      ]
+      ],
     ],
     notify  => Service['nrpe']
+  }
+
+  $nrpe_user = 'nrpe'
+
+  file { '/etc/sudoers.d/unruly_nrpe_check_disk':
+    ensure  => present,
+    mode    => '0440',
+    owner   => 'root',
+    group   => 'root',
+    content => "Defaults:${nrpe_user} !requiretty\n${nrpe_user} ALL = NOPASSWD: /usr/lib64/nagios/plugins/check_disk\n"
   }
 
   file { '/etc/nrpe.d/unruly':

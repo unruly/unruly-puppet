@@ -39,3 +39,5 @@ base::nrpe::load_params::important: false
 base::nrpe::load_params::thr_warning: 'some_numbers'
 base::nrpe::load_params::thr_critical: 'some_numbers'
 base::nrpe::load_params::attempts: 0
+
+base::nrpe::hostgroup: 'some_hostgroup'

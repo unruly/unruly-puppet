@@ -26,4 +26,6 @@ class base {
   include base::selinux
 
   include base::python
+
+  include base::wget
 }

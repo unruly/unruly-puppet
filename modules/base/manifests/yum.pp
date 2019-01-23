@@ -1,6 +1,6 @@
 # == Class: base::yum
 #
-# Installs base yum plugins on CentOS 7 images.
+# Installs base yum plugins.
 #
 # === Parameters:
 #

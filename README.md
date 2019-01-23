@@ -106,7 +106,8 @@ Individual modules can be imported in your Puppetfile using `librarian` e.g.
 |              | `base::nrpe::plugins::disk_params`  | Contains the nrpe parameters for disk related checks |  
 |              | `base::nrpe::plugins::load_params`  | Contains the nrpe parameters for load related checks |  
 |              | `base::selinux`                     | Sets up SELinux for the system. |    
-|              | `base::python`                      | Installs python and pip. |    
+|              | `base::python`                      | Installs python and pip. |  
+|              | `base::wget`                        | Installs wget.           |   
 | monitoring   | `monitoring`                        | Includes `monitoring::*` subclasses. |    
 |              | `monitoring::nagios`                | Installs and starts nagios |    
 |              | `monitoring::nagios::plugins`       | Installs a default set of nagios plugins. |    

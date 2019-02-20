@@ -85,35 +85,36 @@ Individual modules can be imported in your Puppetfile using `librarian` e.g.
 
 ## Modules
 
-| Module       | Resource     | Description |
-|:-------------|:-------------|:------------|
-| credentials  | `credentials`                       | Manages the `/etc/credentials` directory tree for storing configuration files. |
-| base         | `base`                              | Includes `base::*` subclasses. |
-|              | `base::yum`                         | Installs base yum plugins on CentOS 7 images. Uses hiera to source plugins by default, but can be customised.  |
-|              | `base::yum::clean`                  | Sets up a cronjob to clean Yum repo metadata once per day at random, determined by FQDN. |
-|              | `base::yum::repos::unruly`          | Sets up unruly repository configuration for yum. |
-|              | `base::yum::repos::epel`            | Sets up unruly repository configuration for EPEL. |  
-|              | `base::yum::repos::artifactory`     | Sets up unruly repository configuration for Artifactory. |  
-|              | `base::ssh::server`                 | Ensures sshd is running and sets up sshd configuration. | 
-|              | `base::ssh::server::config`         | Configures the SSH daemon. |
-|              | `base::ntp`                         | Installs ntp and ensures that the daemon is running. |  
-|              | `base::collectd`                    | Installs collectd, provides configuration, and ensures service is running. |
-|              | `base::collectd::plugins`           | Installs collectd plugins. |  
-|              | `base::collectd::config`            | Defines configuration resource for backend service (e.g. graphite). |  
-|              | `base::syslog_ng`                   | Installs syslog-ng for system logging and removes known incompatible logging packages |  
-|              | `base::nrpe`                        | Installs nrpe, provides base configuration, and ensures service is running |  
-|              | `base::nrpe::plugins`               | Sets up and configures default NRPE plugins for every node |  
-|              | `base::nrpe::plugins::disk_params`  | Contains the nrpe parameters for disk related checks |  
-|              | `base::nrpe::plugins::load_params`  | Contains the nrpe parameters for load related checks |  
-|              | `base::selinux`                     | Sets up SELinux for the system. |    
-|              | `base::python`                      | Installs python and pip. |  
-|              | `base::wget`                        | Installs wget.           |   
-| monitoring   | `monitoring`                        | Includes `monitoring::*` subclasses. |    
-|              | `monitoring::nagios`                | Installs and starts nagios |    
-|              | `monitoring::nagios::plugins`       | Installs a default set of nagios plugins. |    
-|              | `monitoring::nagios::nsca`          | Installs nsca for accepting passive checks. |    
-|              | `monitoring::nagios::xinetd`        | Installs xinetd. |   
+| Module            | Resource                            | Description |
+|:------------------|:------------------------------------|:------------|
+| credentials       | `credentials`                       | Manages the `/etc/credentials` directory tree for storing configuration files. |
+| cron              | `cron::cleanup`                     | Cleans up files not modified past a defined threshold within a directory. |
+| base              | `base`                              | Includes `base::*` subclasses. |
+|                   | `base::yum`                         | Installs base yum plugins on CentOS 7 images. Uses hiera to source plugins by default, but can be customised.  |
+|                   | `base::yum::clean`                  | Sets up a cronjob to clean Yum repo metadata once per day at random, determined by FQDN. |
+|                   | `base::yum::repos::unruly`          | Sets up unruly repository configuration for yum. |
+|                   | `base::yum::repos::epel`            | Sets up unruly repository configuration for EPEL. |  
+|                   | `base::yum::repos::artifactory`     | Sets up unruly repository configuration for Artifactory. |  
+|                   | `base::ssh::server`                 | Ensures sshd is running and sets up sshd configuration. | 
+|                   | `base::ssh::server::config`         | Configures the SSH daemon. |
+|                   | `base::ntp`                         | Installs ntp and ensures that the daemon is running. |  
+|                   | `base::collectd`                    | Installs collectd, provides configuration, and ensures service is running. |
+|                   | `base::collectd::plugins`           | Installs collectd plugins. |  
+|                   | `base::collectd::config`            | Defines configuration resource for backend service (e.g. graphite). |  
+|                   | `base::syslog_ng`                   | Installs syslog-ng for system logging and removes known incompatible logging packages |  
+|                   | `base::nrpe`                        | Installs nrpe, provides base configuration, and ensures service is running |  
+|                   | `base::nrpe::plugins`               | Sets up and configures default NRPE plugins for every node |  
+|                   | `base::nrpe::plugins::disk_params`  | Contains the nrpe parameters for disk related checks |  
+|                   | `base::nrpe::plugins::load_params`  | Contains the nrpe parameters for load related checks |  
+|                   | `base::selinux`                     | Sets up SELinux for the system. |    
+|                   | `base::python`                      | Installs python and pip. |  
+|                   | `base::wget`                        | Installs wget.           |   
+| monitoring        | `monitoring`                        | Includes `monitoring::*` subclasses. |    
+|                   | `monitoring::nagios`                | Installs and starts nagios |    
+|                   | `monitoring::nagios::plugins`       | Installs a default set of nagios plugins. |    
+|                   | `monitoring::nagios::nsca`          | Installs nsca for accepting passive checks. |    
+|                   | `monitoring::nagios::xinetd`        | Installs xinetd. |   
 | nrpe_custom_check | `nrpe_custom_check`            | Sets up an nrpe plugin and its configuration. | 
-|              | `nrpe_custom_check::plugin`         | Sets up an individual nrpe plugin script. | 
-|              | `nrpe_custom_check::plugin_config`  | Sets up nrpe configuration for a plugin. | 
-|              | `nrpe_custom_check::sudo_config`    | Sets up sudoers configuration for an individual nrpe plugin that requires extra permissions. | 
+|                   | `nr     pe_custom_check::plugin`         | Sets up an individual nrpe plugin script. | 
+|                   | `nrpe_custom_check::plugin_config`  | Sets up nrpe configuration for a plugin. | 
+|                   | `nrpe_custom_check::sudo_config`    | Sets up sudoers configuration for an individual nrpe plugin that requires extra permissions. | 

@@ -4,3 +4,4 @@ bin/
 hieradata/*
 *.iml
 modules/**/spec/fixtures
+.rakeTasks

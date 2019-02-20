@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     ansi (1.5.0)
     ast (2.4.0)
@@ -55,11 +55,12 @@ GEM
     net-ssh (5.1.0)
     net-telnet (0.1.1)
     netrc (0.11.0)
-    parallel (1.12.1)
+    parallel (1.13.0)
     parallel_tests (2.14.2)
       parallel
     parser (2.5.1.2)
       ast (~> 2.4.0)
+    pathspec (0.2.1)
     powerpack (0.1.2)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -75,8 +76,8 @@ GEM
     puppet-blacksmith (4.1.2)
       rest-client (~> 2.0)
     puppet-lint (2.3.6)
-    puppet-module-posix-default-r2.4 (0.3.13)
-    puppet-module-posix-dev-r2.4 (0.3.13)
+    puppet-module-posix-default-r2.4 (0.3.14)
+    puppet-module-posix-dev-r2.4 (0.3.14)
       codecov (~> 0.1.10)
       gettext-setup (~> 0.26)
       metadata-json-lint (>= 2.0.2, < 3.0.0)
@@ -99,7 +100,7 @@ GEM
       rubocop-rspec (~> 1.16.0)
       simplecov (>= 0.14.1, < 1.0.0)
       simplecov-console (~> 0.4.2)
-      specinfra (= 2.76.3)
+      specinfra (= 2.76.7)
     puppet-strings (2.1.0)
       rgen
       yard (~> 0.9.5)
@@ -107,8 +108,9 @@ GEM
       rake
     puppet_pot_generator (1.0.1)
       puppet
-    puppetlabs_spec_helper (2.12.0)
+    puppetlabs_spec_helper (2.13.1)
       mocha (~> 1.0)
+      pathspec (~> 0.2.1)
       puppet-lint (~> 2.0)
       puppet-syntax (~> 2.0)
       rspec-puppet (~> 2.0)
@@ -167,7 +169,7 @@ GEM
     simplecov-html (0.10.2)
     slop (3.6.0)
     spdx-licenses (1.2.0)
-    specinfra (2.76.3)
+    specinfra (2.76.7)
       net-scp
       net-ssh (>= 2.7)
       net-telnet (= 0.1.1)
@@ -180,7 +182,7 @@ GEM
     unf_ext (0.0.7.5)
     unicode-display_width (1.4.1)
     url (0.3.2)
-    yard (0.9.16)
+    yard (0.9.18)
 
 PLATFORMS
   ruby

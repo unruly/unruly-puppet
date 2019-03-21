@@ -5,6 +5,7 @@ LoadPlugin write_graphite
     Port "<%= @backend_port %>"
     Protocol "tcp"
     Prefix "collectd."
+    ReconnectInterval 10
     StoreRates true
     AlwaysAppendDS true
     EscapeCharacter "_"

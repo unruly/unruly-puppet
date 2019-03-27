@@ -28,4 +28,6 @@ class base {
   include base::python
 
   include base::wget
+
+  include base::cloudinit
 }

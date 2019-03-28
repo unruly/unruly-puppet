@@ -8,6 +8,7 @@ describe 'base::cloudinit' do
 
   it { is_expected.to  contain_file('/etc/cloud/cloud-init.disabled')
                            .with(
+                               :ensure => 'present',
                                :owner  => 'root',
                                :group  => 'root',
                                :mode   => '0644'

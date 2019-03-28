@@ -4,8 +4,9 @@
 #
 class base::cloudinit {
   file { '/etc/cloud/cloud-init.disabled':
-    owner => 'root',
-    group => 'root',
-    mode  => '0644',
+    ensure => 'present',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
   }
 }

@@ -90,6 +90,8 @@ Individual modules can be imported in your Puppetfile using `librarian` e.g.
 | credentials       | `credentials`                       | Manages the `/etc/credentials` directory tree for storing configuration files. |
 | cron              | `cron::cleanup`                     | Cleans up files not modified past a defined threshold within a directory. |
 | base              | `base`                              | Includes `base::*` subclasses. |
+|                   | `base::awscli`                      | Install awscli from pip, and symlink it so it is available on all paths  |
+|                   | `base::crond`                       | Install awscli from pip, and symlink it so it is available on all paths  |
 |                   | `base::yum`                         | Installs base yum plugins on CentOS 7 images. Uses hiera to source plugins by default, but can be customised.  |
 |                   | `base::yum::clean`                  | Sets up a cronjob to clean Yum repo metadata once per day at random, determined by FQDN. |
 |                   | `base::yum::repos::unruly`          | Sets up unruly repository configuration for yum. |

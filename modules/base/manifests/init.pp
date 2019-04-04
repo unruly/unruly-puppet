@@ -8,6 +8,7 @@
 #  - In this case, we enforce yum::repos::epel to be installed before collectd.
 #
 class base {
+  include base::awscli
   include base::ntp
 
   include base::ssh::server

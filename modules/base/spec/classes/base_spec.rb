@@ -17,4 +17,5 @@ describe 'base' do
   it { is_expected.to contain_class('base::python') }
   it { is_expected.to contain_class('base::cloudinit') }
   it { is_expected.to contain_class('base::awscli') }
+  it { is_expected.to contain_class('base::crond') }
 end

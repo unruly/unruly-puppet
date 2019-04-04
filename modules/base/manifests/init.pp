@@ -9,6 +9,7 @@
 #
 class base {
   include base::awscli
+  include base::crond
   include base::ntp
 
   include base::ssh::server
